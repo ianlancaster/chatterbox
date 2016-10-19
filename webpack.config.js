@@ -1,8 +1,8 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   entry: {
-    main: ['babel-polyfill', './lib/index.js']
+    main: ['babel-polyfill', './lib/index.js'],
   },
   output: {
     path: path.join(__dirname, 'public'),
@@ -27,4 +27,4 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.scss', '.css'],
   },
-};
+}
