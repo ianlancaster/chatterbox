@@ -16,5 +16,6 @@
     "max-len": ["warn", 120],
     "class-methods-use-this": [0],
     "no-unused-vars": 0,
+    "arrow-body-style": 0,
   }
 }
