@@ -15,5 +15,6 @@
     "semi": ["error", "never"],
     "max-len": ["warn", 120],
     "class-methods-use-this": [0],
+    "no-unused-vars": 0,
   }
 }
