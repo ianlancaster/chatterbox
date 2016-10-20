@@ -3,7 +3,7 @@ import React from 'react'
 import { shallow, mount, render } from 'enzyme'
 import { assert } from 'chai'
 
-import Application from '../lib/components/Application'
+import Application from '../lib/components/Application.jsx'
 
 describe('Application', () => {
   it('renders as a <div>', () => {
