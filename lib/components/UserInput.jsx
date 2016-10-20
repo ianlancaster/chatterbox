@@ -23,8 +23,18 @@ export default class UserInput extends Component {
     this.setState({ draftMessage: '' })
   }
 
+  clearMessage() {
+    this.setState({
+      draftMessage: '',
+    })
+  }
+
   render() {
     const { draftMessage } = this.state
+    let buttonState = false
+    if (!this.state.draftMessage) {
+      buttonState = true
+    }
 
     return (
       <div className="MessageInput">
@@ -32,8 +42,11 @@ export default class UserInput extends Component {
           placeholder="Message…"
           value={this.state.draftMessage}
           onChange={e => this.setState({ draftMessage: e.target.value })}
+          maxLength='140'
         />
-        <button onClick={() => this.addNewMessage()}>Add New Message</button>
+        <p>{this.state.draftMessage.length}</p>
+        <button onClick={() => this.addNewMessage()} disabled={buttonState}>Add New Message</button>
+        <button onClick={() => this.clearMessage()} disabled={buttonState}>Clear</button>
       </div>
     )
   }
