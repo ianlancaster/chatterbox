@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { pick, map, extend } from 'lodash'
-import firebase, { reference, signIn } from '../firebase'
+import firebase, { reference } from '../firebase'
 
 const Message = require('../components/Message.jsx')
 
