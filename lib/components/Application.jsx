@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { pick, map, extend } from 'lodash'
-import firebase, { reference, signIn, signOut } from '../firebase'
 import UserInput from './UserInput.jsx'
 import MessagesContainer from '../containers/MessagesContainer.jsx'
+import LogInStatus from './LogInStatus.jsx'
 
 export default class Application extends Component {
   constructor() {
@@ -10,10 +10,11 @@ export default class Application extends Component {
     this.state = {
       user: null,
     }
+    this.updateUser = this.updateUser.bind(this)
   }
 
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => this.setState({ user }))
+  updateUser(user) {
+    this.setState({ user })
   }
 
   render() {
@@ -21,10 +22,8 @@ export default class Application extends Component {
 
     return (
       <div className="Application">
-      {/* TODO: move user name to log in status components */}
-        {user ? <p>Hello {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
-        <button onClick={() => signOut()}>Sign Out</button>
-        <MessagesContainer />
+        <MessagesContainer user={user} />
+        <LogInStatus user={user} updateUser={this.updateUser} />
         <UserInput user={user} />
       </div>
     )
