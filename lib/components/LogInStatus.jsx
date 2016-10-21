@@ -3,13 +3,6 @@ import firebase, { reference, signIn, signOut } from '../firebase'
 import Button from './Button.jsx'
 
 export default class LogInStatus extends Component {
-  constructor(props) {
-    super()
-    this.state = {
-      // user: null,
-    }
-  }
-
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => this.props.updateUser(user))
   }

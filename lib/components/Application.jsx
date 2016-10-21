@@ -22,8 +22,8 @@ export default class Application extends Component {
 
     return (
       <div className="Application">
-        <MessagesContainer />
-        <LogInStatus user={user} updateUser={this.updateUser}/>
+        <MessagesContainer user={user} />
+        <LogInStatus user={user} updateUser={this.updateUser} />
         <UserInput user={user} />
       </div>
     )

@@ -12,9 +12,9 @@ export default class Application extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillReceiveProps() {
     reference.limitToLast(100).on('value', (snapshot) => {
-      const messages = snapshot.val() || {}
+      const messages = snapshot ? snapshot.val() : {}
       this.setState({
         messages: map(messages, (val, key) => extend(val, { key })),
       })
@@ -27,7 +27,7 @@ export default class Application extends Component {
     return (
       <div>
         <ul>
-          { messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} />) }
+          { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} />) : '' }
         </ul>
       </div>
     )
