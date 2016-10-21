@@ -1,5 +1,7 @@
+@import "../modules/colors";
+
 .message-input {
   border: none;
-  background: #D8D8D8;
-  color: #697B81;
+  background: $pale-gray;
+  color: $dark-gray;
 }
