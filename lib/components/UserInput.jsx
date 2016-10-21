@@ -39,6 +39,7 @@ export default class UserInput extends Component {
     return (
       <div className="MessageInput">
         <input
+          className='message-input'
           placeholder="Message…"
           value={this.state.draftMessage}
           onChange={e => this.setState({ draftMessage: e.target.value })}
