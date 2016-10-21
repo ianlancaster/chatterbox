@@ -1,7 +1,12 @@
 @import "../modules/colors";
 
+.message-input-container {
+  width: 200px;
+}
+
 .message-input {
   border: none;
   background: $pale-gray;
   color: $dark-gray;
+  width: 100%;
 }

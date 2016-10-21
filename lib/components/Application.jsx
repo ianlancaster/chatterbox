@@ -20,7 +20,7 @@ export default class Application extends Component {
     const { user } = this.state
 
     return (
-      <div className="Application">
+      <div className="application">
       {/* TODO: move user name to log in status components */}
         {user ? <p>Hello {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
         <button onClick={() => signOut()}>Sign Out</button>

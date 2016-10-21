@@ -37,7 +37,7 @@ export default class UserInput extends Component {
     }
 
     return (
-      <div className="MessageInput">
+      <section className="message-input-container">
         <input
           className='message-input'
           placeholder="Message…"
@@ -48,7 +48,7 @@ export default class UserInput extends Component {
         <p>{this.state.draftMessage.length}</p>
         <button onClick={() => this.addNewMessage()} disabled={buttonState}>Add New Message</button>
         <button onClick={() => this.clearMessage()} disabled={buttonState}>Clear</button>
-      </div>
+      </section>
     )
   }
 }
