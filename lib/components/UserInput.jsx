@@ -46,8 +46,8 @@ export default class UserInput extends Component {
           maxLength='140'
         />
         <p>{this.state.draftMessage.length}</p>
-        <button onClick={() => this.addNewMessage()} disabled={buttonState}>Add New Message</button>
-        <button onClick={() => this.clearMessage()} disabled={buttonState}>Clear</button>
+        <button className='add-btn' onClick={() => this.addNewMessage()} disabled={buttonState}>Add Message</button>
+        <button className='clear-btn' onClick={() => this.clearMessage()} disabled={buttonState}>Clear</button>
       </section>
     )
   }

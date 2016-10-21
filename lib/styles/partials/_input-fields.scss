@@ -1,6 +1,9 @@
 @import "../modules/colors";
+@import "../partials/buttons";
 
 .message-input-container {
+  display: flex;
+  flex-direction: row;
   width: 200px;
 }
 
