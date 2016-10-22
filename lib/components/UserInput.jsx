@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { pick, map, extend } from 'lodash'
 import firebase, { reference, signIn } from '../firebase'
-
+import autoSize from './AutoSize'
 
 export default class UserInput extends Component {
   constructor() {
