@@ -19,6 +19,7 @@ export default class UserInput extends Component {
       user: pick(this.props.user, 'displayName', 'email', 'uid'),
       content: draftMessage,
       createdAt: moment().format('MMM D, h:mm A'),
+      id: Date.now(),
     })
 
     this.setState({ draftMessage: '' })
