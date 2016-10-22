@@ -9,9 +9,9 @@ export default class LogInStatus extends Component {
 
   render() {
     return (
-      <section>
-        {this.props.user ? <Button text='Sign Out' action={() => signOut() }/> : ''}
-        {this.props.user ? <p>Logged in as {this.props.user.displayName.split(' ')[0]} ({this.props.user.email})</p> : <Button text='Sign In' action={() => signIn()}/> }
+      <section className='login-status-container'>
+        {this.props.user ? <Button cl='sign-out-button' text='Sign Out' action={() => signOut() }/> : ''}
+        {this.props.user ? <p>Logged in as <span className='login-name'>{this.props.user.displayName.split(' ')[0]}</span> ({this.props.user.email})</p> : <Button cl='sign-in-button' text='Sign In' action={() => signIn()}/> }
       </section>
     )
   }

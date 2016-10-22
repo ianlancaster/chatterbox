@@ -7,11 +7,10 @@ button {
 }
 
 .add-btn, .clear-btn {
-  border: $display-none;
+  @include defaultbutton;
   border-radius: 5px;
   color: $white;
   font-size: 15px;
-  margin-right: 10px;
   height: 40px;
   width: 75px;
 }
@@ -22,4 +21,9 @@ button {
 
 .clear-btn {
   background: $red;
+}
+
+.sign-out-button {
+  @include defaultbutton;
+  float: right;
 }
