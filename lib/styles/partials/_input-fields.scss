@@ -2,12 +2,15 @@
 @import "../partials/buttons";
 
 .message-input-container {
+  background: $dark-blue;
+  background-color: $dark-blue;
   display: flex;
   flex-direction: row;
+  align-items: center;
   position: absolute;
-  bottom: 15px;
-  left: 10px;
-  min-width: 80%;
+  bottom: 0px;
+  height: 60px;
+  width: $main-width;
 }
 
 .message-input {
