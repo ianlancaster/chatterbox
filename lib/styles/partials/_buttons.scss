@@ -27,3 +27,8 @@ button {
   @include defaultbutton;
   float: right;
 }
+
+.sign-in-button {
+  @include defaultbutton;
+  margin-left: 10px;
+}
