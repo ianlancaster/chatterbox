@@ -7,6 +7,7 @@ import Application from '../lib/components/Application.jsx'
 import UserInput from '../lib/components/UserInput.jsx'
 import MessagesContainer from '../lib/containers/MessagesContainer.jsx'
 import LogInStatus from '../lib/components/LogInStatus.jsx'
+import mockFirebase from './helpers/mockFirebase.js'
 
 
 describe('Application', () => {
@@ -25,15 +26,18 @@ describe('Application', () => {
     it('should not display the messages if no user is logged in', () => {
       const wrapper = mount(<Application />)
       wrapper.setState({ user: null })
-      // expect(wrapper.find('.messages-list').isEmpty()).to.equal(true)
-      // expect(wrapper.html()).to.contain('<div class="messages-container"><ul></ul></div>')
       expect(wrapper.find('ul').children()).to.have.length(0)
     })
-  })
 
-  context('unit tests', () => {
-    it('should pass because there is no test', () => {
+    it('should display "hello username" when a user is logged in', () => {
+      const wrapper = shallow(<Application />)
+      wrapper.setState({ user: mockFirebase.user })
+      expect(wrapper.html()).to.contain('<p>Hello Ian Lancaster</p>')
+    })
 
+    it('NEED HELP should display messages when the user is logged in', () => {
+      const wrapper = shallow(<Application />)
+      wrapper.setState({ user: mockFirebase.user })
     })
   })
 })
