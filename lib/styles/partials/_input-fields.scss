@@ -34,3 +34,17 @@
   font-weight: bold;
   margin-right: 25px;
 }
+
+@media only screen and (max-width: 550px) {
+  .message-input-container {
+    height: 100px;
+  }
+
+  .message-input {
+    width: 90%;
+  }
+
+  .add-btn {
+    display: block;
+  }
+}
