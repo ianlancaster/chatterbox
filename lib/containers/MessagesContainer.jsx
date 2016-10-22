@@ -25,15 +25,9 @@ export default class Application extends Component {
   render() {
     const { messages } = this.state
     return (
-<<<<<<< HEAD
-      <div className='messages-container'>
-        <ul className='messages-list'>
-          { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} />) : '' }
-=======
       <div>
         <ul>
           { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
->>>>>>> master
         </ul>
       </div>
     )
