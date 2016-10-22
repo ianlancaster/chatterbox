@@ -48,7 +48,7 @@ export default class UserInput extends Component {
           aria-label='textbox'
           tabIndex='0'
         />
-        <p className='character-count'>{this.state.draftMessage.length}</p>
+        <p className='character-count'>{(this.state.draftMessage.length - 140) * -1}</p>
         <button className='add-btn' onClick={() => this.addNewMessage()} disabled={buttonState}>Send</button>
         <button className='clear-btn' onClick={() => this.clearMessage()} disabled={buttonState}>Clear</button>
       </section>
