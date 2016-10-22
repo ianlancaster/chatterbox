@@ -1,0 +1,50 @@
+@import "../modules/colors";
+@import "../partials/buttons";
+
+.message-input-container {
+  background: $dark-blue;
+  background-color: $dark-blue;
+  display: flex;
+  flex-direction: row;
+  align-items: $display-center;
+  position: absolute;
+  bottom: 0px;
+  height: 60px;
+  min-width: $main-width;
+}
+
+.message-input {
+  border: none;
+  border-radius: 5px;
+  background: $pale-gray;
+  color: $dark-gray;
+  font-size: 15px;
+  margin-left: $small-margin;
+  margin-right: 25px;
+  overflow: hidden;
+  padding-left: $small-padding;
+  padding-top: $small-padding + 3;
+  height: 25px;
+  width: 65%;
+}
+
+.character-count {
+  color: darken($white, 5%);
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 25px;
+}
+
+@media only screen and (max-width: 550px) {
+  .message-input-container {
+    height: 100px;
+  }
+
+  .message-input {
+    width: 90%;
+  }
+
+  .add-btn {
+    display: block;
+  }
+}

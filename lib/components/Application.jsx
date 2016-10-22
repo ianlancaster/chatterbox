@@ -21,7 +21,7 @@ export default class Application extends Component {
     const { user } = this.state
 
     return (
-      <div className="Application">
+      <div className="app">
         <MessagesContainer user={user} />
         <LogInStatus user={user} updateUser={this.updateUser} />
         <UserInput user={user} />
