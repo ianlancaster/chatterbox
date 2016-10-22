@@ -4,12 +4,20 @@
 .message-input-container {
   display: flex;
   flex-direction: row;
-  width: 200px;
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+  min-width: 80%;
 }
 
 .message-input {
   border: none;
+  border-radius: 5px;
   background: $pale-gray;
   color: $dark-gray;
+  font-size: 15px;
+  padding-left: 10px;
+  padding-top: 13px;
+  height: 25px;
   width: 100%;
 }

@@ -1,11 +1,19 @@
+@import "./variables";
+
 body {
   box-sizing: border-box;
 }
 
-.application {
+#application {
   display: flex;
   border: 1px solid red;
-  margin: 50px auto;
-  height: 80%;
-  width: 90%;
+  margin: 20px auto;
+  height: 800px;
+  width: $main-width - 10;
+}
+
+.app {
+  position: relative;
+  height: $main-height;
+  width: $main-width;
 }

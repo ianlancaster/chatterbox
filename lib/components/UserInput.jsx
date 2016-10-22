@@ -38,7 +38,7 @@ export default class UserInput extends Component {
 
     return (
       <section className="message-input-container">
-        <input
+        <textarea
           className='message-input'
           placeholder="Message…"
           value={this.state.draftMessage}
