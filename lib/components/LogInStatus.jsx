@@ -5,6 +5,7 @@ import Button from './Button.jsx'
 export default class LogInStatus extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => this.props.updateUser(user))
+
   }
 
   render() {
