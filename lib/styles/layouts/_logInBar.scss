@@ -1,0 +1,19 @@
+@import "../partials/buttons";
+@import "../modules/variables";
+
+.login-status-container {
+  opacity: 10%;
+  position: absolute;
+  bottom: 70px;
+  width: $main-width;
+
+  p {
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .login-status-container {
+    display: none;
+  }
+}
