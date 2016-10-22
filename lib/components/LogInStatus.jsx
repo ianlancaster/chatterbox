@@ -10,7 +10,7 @@ export default class LogInStatus extends Component {
   render() {
     return (
       <section>
-        <Button text='Sign Out' action={() => signOut() }/>
+        {this.props.user ? <Button text='Sign Out' action={() => signOut() }/> : ''}
         {this.props.user ? <p>Hello {this.props.user.displayName}</p> : <Button text='Sign In' action={() => signIn()}/> }
       </section>
     )
