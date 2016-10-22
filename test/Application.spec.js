@@ -10,16 +10,31 @@ import LogInStatus from '../lib/components/LogInStatus.jsx'
 
 
 describe('Application', () => {
-  it('renders as a <div>', () => {
-    const wrapper = mount(<Application />)
-    // expect(wrapper.text()).to.contain('Likes: 0Like! (+1)Dislike! (-1)')
-    expect(wrapper.html()).to.contain('<div class="app">')
+  context('feature tests', () => {
+    it('renders as a <div>', () => {
+      const wrapper = mount(<Application />)
+      expect(wrapper.html()).to.contain('<div class="app">')
+    })
+
+    it('should contain a MessagesContainer object', () => {
+      const wrapper = mount(<Application />)
+      wrapper.setState({ user: null })
+      expect(wrapper.contains(<MessagesContainer user={wrapper.state().user} />)).to.be.true
+    })
+
+    it('should not display the messages if no user is logged in', () => {
+      const wrapper = mount(<Application />)
+      wrapper.setState({ user: null })
+      // expect(wrapper.find('.messages-list').isEmpty()).to.equal(true)
+      // expect(wrapper.html()).to.contain('<div class="messages-container"><ul></ul></div>')
+      expect(wrapper.find('ul').children()).to.have.length(0)
+    })
   })
 
-  it('should contain a MessagesContainer object', () => {
-    const wrapper = mount(<Application />)
-    const user = null
-    expect(wrapper.contains(<MessagesContainer user={user} />)).to.be.true
+  context('unit tests', () => {
+    it('should pass because there is no test', () => {
+
+    })
   })
 })
 

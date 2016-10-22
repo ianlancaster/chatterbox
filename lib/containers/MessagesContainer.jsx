@@ -25,8 +25,8 @@ export default class Application extends Component {
     const { messages } = this.state
 
     return (
-      <div>
-        <ul>
+      <div className='messages-container'>
+        <ul className='messages-list'>
           { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} />) : '' }
         </ul>
       </div>
