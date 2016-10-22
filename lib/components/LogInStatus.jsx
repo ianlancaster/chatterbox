@@ -11,7 +11,7 @@ export default class LogInStatus extends Component {
     return (
       <section>
         {this.props.user ? <Button text='Sign Out' action={() => signOut() }/> : ''}
-        {this.props.user ? <p>Hello {this.props.user.displayName}</p> : <Button text='Sign In' action={() => signIn()}/> }
+        {this.props.user ? <p>Logged in as {this.props.user.displayName.split(' ')[0]} ({this.props.user.email})</p> : <Button text='Sign In' action={() => signIn()}/> }
       </section>
     )
   }
