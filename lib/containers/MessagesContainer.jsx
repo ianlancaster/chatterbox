@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { pick, map, extend } from 'lodash'
+import moment from 'moment'
 import firebase, { reference } from '../firebase'
 
 const Message = require('../components/Message.jsx')
@@ -23,11 +24,10 @@ export default class Application extends Component {
 
   render() {
     const { messages } = this.state
-
     return (
       <div>
         <ul>
-          { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} />) : '' }
+          { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
         </ul>
       </div>
     )
