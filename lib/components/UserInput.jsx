@@ -44,6 +44,8 @@ export default class UserInput extends Component {
           value={this.state.draftMessage}
           onChange={e => this.setState({ draftMessage: e.target.value })}
           maxLength='140'
+          aria-label='textbox'
+          tabindex='0'
         />
         <p className='character-count'>{this.state.draftMessage.length}</p>
         <button className='add-btn' onClick={() => this.addNewMessage()} disabled={buttonState}>Send</button>
