@@ -10,7 +10,7 @@
   position: absolute;
   bottom: 0px;
   height: 60px;
-  width: $main-width;
+  min-width: $main-width;
 }
 
 .message-input {
@@ -19,9 +19,17 @@
   background: $pale-gray;
   color: $dark-gray;
   font-size: 15px;
+  margin-left: 10px;
+  margin-right: 25px;
   overflow: hidden;
   padding-left: 10px;
   padding-top: 13px;
   height: 25px;
-  width: 100%;
+  width: 65%;
+}
+
+.character-count {
+  color: $white;
+  font-size: 15px;
+  margin-right: 25px;
 }
