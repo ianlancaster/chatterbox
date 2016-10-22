@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { pick, map, extend } from 'lodash'
+import moment from 'moment'
 import firebase, { reference, signIn } from '../firebase'
 import autoSize from './AutoSize'
 
@@ -17,7 +18,7 @@ export default class UserInput extends Component {
     reference.push({
       user: pick(this.props.user, 'displayName', 'email', 'uid'),
       content: draftMessage,
-      createdAt: Date.now(),
+      createdAt: moment().format('MMM D, h:mm A'),
     })
 
     this.setState({ draftMessage: '' })
@@ -47,7 +48,7 @@ export default class UserInput extends Component {
           aria-label='textbox'
           tabIndex='0'
         />
-        <p className='character-count'>{this.state.draftMessage.length}</p>
+        <p className='character-count'>{(this.state.draftMessage.length - 140) * -1}</p>
         <button className='add-btn' onClick={() => this.addNewMessage()} disabled={buttonState}>Send</button>
         <button className='clear-btn' onClick={() => this.clearMessage()} disabled={buttonState}>Clear</button>
       </section>

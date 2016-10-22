@@ -1,5 +1,7 @@
 @import "../modules/colors";
 @import "../partials/buttons";
+@import "../partials/typography";
+
 
 .message-input-container {
   background: $dark-blue;
@@ -18,6 +20,7 @@
   border-radius: 5px;
   background: $pale-gray;
   color: $dark-gray;
+  font-family: $fira-sans;
   font-size: 15px;
   margin-left: $small-margin;
   margin-right: 25px;
