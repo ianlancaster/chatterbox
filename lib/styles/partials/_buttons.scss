@@ -1,7 +1,9 @@
 @import "../modules/variables";
+@import "../partials/typography";
 
 button {
   cursor: pointer;
+  font-family: $fira-sans;
 }
 
 .add-btn, .clear-btn {
