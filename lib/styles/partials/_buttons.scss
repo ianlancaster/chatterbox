@@ -1,12 +1,21 @@
+button {
+  cursor: pointer;
+}
+
+.add-btn, .clear-btn {
+  border: $display-none;
+  border-radius: 5px;
+  color: $white;
+  font-size: 15px;
+  margin-right: 10px;
+  height: 40px;
+  width: 75px;
+}
 
 .add-btn {
   background-color: $green;
-  height: 30px;
-  width: 75px;
 }
 
 .clear-btn {
   background: $red;
-  height: 30px;
-  width: 75px;
 }
