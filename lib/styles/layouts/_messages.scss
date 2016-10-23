@@ -1,0 +1,28 @@
+@import "../modules/variables";
+@import "../modules/colors";
+
+#messages-container {
+  display: inline-block;
+  margin-top: 20px;
+  height: 625px;
+  width: $main-width - 30;
+
+  ul {
+    margin-left: 10px;
+
+    .message-detail {
+      color: $purple;
+    }
+
+    .name {
+      color: lighten($dark-blue, 15%);
+      font-weight: bold;
+      padding-left: 5px;
+    }
+
+    .message {
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+  }
+}

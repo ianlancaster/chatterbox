@@ -1,4 +1,12 @@
 @mixin defaultbutton {
   border: none;
+  border-radius: 2px;
   margin-right: 10px;
+}
+
+@mixin buttonpadding {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
