@@ -2,22 +2,28 @@
 @import "../modules/colors";
 
 #messages-container {
-  border: 1px solid red;
+  display: inline-block;
   margin-top: 20px;
   height: 625px;
   width: $main-width - 30;
-}
 
-.message-detail {
-  font-weight: bolder;
-}
+  ul {
+    margin-left: 10px;
 
-.name {
-  font-weight: normal;
-  padding-left: 5px;
-}
+    .message-detail {
+      color: $light-black;
+      font-weight: bolder;
+    }
 
-.message {
-  margin-top: 5px;
-  margin-bottom: 10px;
+    .name {
+      color: lighten($light-black, 10%);
+      font-weight: normal;
+      padding-left: 5px;
+    }
+
+    .message {
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+  }
 }
