@@ -2,9 +2,10 @@
 @import "../modules/variables";
 
 .login-status-container {
-  opacity: 10%;
+  background-color: $red;
   position: absolute;
-  bottom: 70px;
+  bottom: 60px;
+  height: 45px;
   width: $main-width;
 
   p {

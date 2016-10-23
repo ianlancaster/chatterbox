@@ -11,13 +11,12 @@
     margin-left: 10px;
 
     .message-detail {
-      color: $light-black;
-      font-weight: bolder;
+      color: $purple;
     }
 
     .name {
-      color: lighten($light-black, 10%);
-      font-weight: normal;
+      color: lighten($dark-blue, 15%);
+      font-weight: bold;
       padding-left: 5px;
     }
 
