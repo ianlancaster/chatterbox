@@ -11,6 +11,7 @@ export default class MessagesContainer extends Component {
     super()
     this.state = {
       messages: [],
+      filteredMessages: [],
     }
     this.sort = this.sort.bind(this)
     this.filter = this.filter.bind(this)
@@ -21,6 +22,9 @@ export default class MessagesContainer extends Component {
       const messages = snapshot ? snapshot.val() : {}
       this.setState({
         messages: map(messages, (val, key) => extend(val, { key })),
+      })
+      this.setState({
+        filteredMessages: this.state.messages,
       })
     })
   }
@@ -36,35 +40,27 @@ export default class MessagesContainer extends Component {
       }
       return false
     })
+
     this.setState({
       messages: sortedMessages,
     })
   }
 
   filter(e) {
-    // https://lodash.com/docs/4.16.4#filter
     e.preventDefault()
-
-    let value = e.target.value
-    console.log(value)
     const messages = this.state.messages
-    debugger
-    const filteredMessages = filter(messages, function(m) {
-      if (value.length <= 0) {
-        return messages
-      } else {
-        return includes(m.content, value)
-      }
-    })
-    console.log('filteredMessages', filteredMessages)
+    const value = e.target.value
+
+    const filteredMessages = filter(messages, m => includes(m.content, value))
+
     this.setState({
-      messages: filteredMessages,
+      filteredMessages: filteredMessages,
     })
-    console.log('state of messages', this.state.messages)
   }
 
   render() {
-    const { messages } = this.state
+    console.log('render')
+    const { filteredMessages } = this.state
     return (
       <section>
         <section className='header'>
@@ -73,7 +69,7 @@ export default class MessagesContainer extends Component {
         </section>
         <div id="messages-container">
           <ul>
-          { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
+          { this.props.user ? filteredMessages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
           </ul>
         </div>
       </section>
