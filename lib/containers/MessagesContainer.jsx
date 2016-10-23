@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { pick, map, extend, sortBy } from 'lodash'
 import firebase, { reference } from '../firebase'
 import Sort from '../components/Sort.jsx'
+import Filter from '../components/Filter.jsx'
 
 const Message = require('../components/Message.jsx')
 
@@ -32,7 +33,7 @@ export default class MessagesContainer extends Component {
       if (direction === 'up') {
         return a.id - b.id
       }
-      return
+      return false
     })
     this.setState({
       messages: sortedMessages
@@ -43,6 +44,7 @@ export default class MessagesContainer extends Component {
     const { messages } = this.state
     return (
       <section>
+        <Filter />
         <Sort sort={this.sort}/>
         <div id="messages-container">
           <ul>
