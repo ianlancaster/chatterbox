@@ -4,8 +4,6 @@ import UserInput from './UserInput.jsx'
 import MessagesContainer from '../containers/MessagesContainer.jsx'
 import UsersContainer from '../containers/UsersContainer.jsx'
 import LogInStatus from './LogInStatus.jsx'
-// import SortContainer from '../containers/SortContainer.jsx'
-
 
 export default class Application extends Component {
   constructor() {

@@ -39,19 +39,17 @@ export default class MessagesContainer extends Component {
     })
   }
 
-  sortReversed() {
-    const reversed = this.state.messages.reverse()
-  }
-
   render() {
     const { messages } = this.state
     return (
-      <div id="messages-container">
+      <section>
         <Sort sort={this.sort}/>
-        <ul>
+        <div id="messages-container">
+          <ul>
           { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
-        </ul>
-      </div>
+          </ul>
+        </div>
+      </section>
     )
   }
 }
