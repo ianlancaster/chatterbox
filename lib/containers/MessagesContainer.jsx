@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { pick, map, extend, sortBy } from 'lodash'
+import { pick, map, extend, sortBy, filter, includes } from 'lodash'
 import firebase, { reference } from '../firebase'
 import Sort from '../components/Sort.jsx'
 import Filter from '../components/Filter.jsx'
@@ -37,11 +37,30 @@ export default class MessagesContainer extends Component {
       return false
     })
     this.setState({
-      messages: sortedMessages
+      messages: sortedMessages,
     })
   }
 
-  filter() {
+  filter(e) {
+    // https://lodash.com/docs/4.16.4#filter
+    e.preventDefault()
+
+    let value = e.target.value
+    console.log(value)
+    const messages = this.state.messages
+    debugger
+    const filteredMessages = filter(messages, function(m) {
+      if (value.length <= 0) {
+        return messages
+      } else {
+        return includes(m.content, value)
+      }
+    })
+    console.log('filteredMessages', filteredMessages)
+    this.setState({
+      messages: filteredMessages,
+    })
+    console.log('state of messages', this.state.messages)
   }
 
   render() {
