@@ -1,0 +1,8 @@
+@import "../partials/buttons";
+@import "../modules/variables";
+
+.sort-container {
+  display: inline-block;
+  width: $main-width - 70;
+  float: right;
+}

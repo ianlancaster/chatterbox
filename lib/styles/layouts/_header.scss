@@ -1,0 +1,16 @@
+@import "../partials/buttons";
+@import "../modules/variables";
+
+.header {
+  background-color: $dark-blue;
+  height: $mid-px/2;
+}
+
+.title-filter-container {
+  display: inline-block;
+}
+
+.title {
+  display: inline-block;
+  margin-right: 10px;
+}

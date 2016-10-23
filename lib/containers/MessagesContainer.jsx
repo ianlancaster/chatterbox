@@ -13,6 +13,7 @@ export default class MessagesContainer extends Component {
       messages: [],
     }
     this.sort = this.sort.bind(this)
+    this.filter = this.filter.bind(this)
   }
 
   componentWillReceiveProps() {
@@ -40,12 +41,17 @@ export default class MessagesContainer extends Component {
     })
   }
 
+  filter() {
+  }
+
   render() {
     const { messages } = this.state
     return (
       <section>
-        <Filter />
-        <Sort sort={this.sort}/>
+        <section className='header'>
+          <Filter filter={this.filter}/>
+          <Sort sort={this.sort}/>
+        </section>
         <div id="messages-container">
           <ul>
           { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
