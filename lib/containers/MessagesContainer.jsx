@@ -5,7 +5,7 @@ import Sort from '../components/Sort.jsx'
 
 const Message = require('../components/Message.jsx')
 
-export default class Application extends Component {
+export default class MessagesContainer extends Component {
   constructor() {
     super()
     this.state = {
@@ -46,7 +46,7 @@ export default class Application extends Component {
   render() {
     const { messages } = this.state
     return (
-      <div>
+      <div id="messages-container">
         <Sort sort={this.sort}/>
         <ul>
           { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
