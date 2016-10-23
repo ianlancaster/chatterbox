@@ -25,6 +25,8 @@ button {
 
 .sign-out-button {
   @include defaultbutton;
+  background-color: lighten($red, 10%);
+  color: $white;
   float: right;
 }
 
