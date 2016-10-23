@@ -23,14 +23,25 @@ button {
   background: $red;
 }
 
-.sign-out-button {
+.sign-in-button, .sign-out-button {
   @include defaultbutton;
-  background-color: lighten($red, 10%);
+  @include buttonpadding;
   color: $white;
-  float: right;
+  font-weight: lighter;
+  position: absolute;
+}
+
+.sign-out-button {
+  background-color: $red;
+  right: 0px;
+  font-size: 12px;
+  bottom: 11px;
 }
 
 .sign-in-button {
-  @include defaultbutton;
-  margin-left: 10px;
+  background-color: $green;
+  color: $white;
+  font-size: 17px;
+  bottom: 7px;
+  left: 10px;
 }
