@@ -61,13 +61,11 @@ export default class MessagesContainer extends Component {
   filter(e) {
     e.preventDefault()
     const messages = this.state.messages
-    const value = e.target.value
+    const value = e.target.value.toLowerCase()
 
     const filteredMessages = filter(messages, m => includes(m.content, value))
 
-    this.setState({
-      filteredMessages: filteredMessages,
-    })
+    this.setState({ filteredMessages: filteredMessages })
   }
 
   render() {

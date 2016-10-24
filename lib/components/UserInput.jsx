@@ -45,6 +45,7 @@ export default class UserInput extends Component {
   }
 
   render() {
+    console.log('render ');
     const { draftMessage } = this.state
     let buttonState = false
     if (!this.state.draftMessage) {
