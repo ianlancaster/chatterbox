@@ -14,18 +14,12 @@
   min-width: $main-width;
 
   .message-input {
-    border: none;
-    border-radius: 5px;
-    background: $pale-gray;
+    @include inputfield;
     color: $dark-gray;
-    font-family: $fira-sans;
-    font-size: 15px;
     margin-left: $small-margin;
     margin-right: 25px;
-    overflow: hidden;
     padding-left: $small-padding;
     padding-top: $small-padding + 3;
-    height: 25px;
     width: 65%;
   }
 
@@ -35,6 +29,16 @@
     font-weight: bold;
     margin-right: 25px;
   }
+}
+
+.filter-field {
+  @include inputfield;
+  // color: $light-black;
+  color: black;
+  margin-left: $small-margin;
+  padding-left: 5px;
+  padding-top: 5px;
+  width: $mid-px * 3;
 }
 
 

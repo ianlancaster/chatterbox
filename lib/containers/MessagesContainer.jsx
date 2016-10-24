@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { pick, map, extend, sortBy } from 'lodash'
+import { pick, map, extend, sortBy, filter, includes } from 'lodash'
 import firebase, { reference } from '../firebase'
 import Sort from '../components/Sort.jsx'
+import Filter from '../components/Filter.jsx'
 
 const Message = require('../components/Message.jsx')
 
@@ -10,8 +11,10 @@ export default class MessagesContainer extends Component {
     super()
     this.state = {
       messages: [],
+      filteredMessages: [],
     }
     this.sort = this.sort.bind(this)
+    this.filter = this.filter.bind(this)
   }
 
   componentWillReceiveProps() {
@@ -19,6 +22,9 @@ export default class MessagesContainer extends Component {
       const messages = snapshot ? snapshot.val() : {}
       this.setState({
         messages: map(messages, (val, key) => extend(val, { key })),
+      })
+      this.setState({
+        filteredMessages: this.state.messages,
       })
     })
   }
@@ -32,21 +38,38 @@ export default class MessagesContainer extends Component {
       if (direction === 'up') {
         return a.id - b.id
       }
-      return
+      return false
     })
+
     this.setState({
-      messages: sortedMessages
+      messages: sortedMessages,
+    })
+  }
+
+  filter(e) {
+    e.preventDefault()
+    const messages = this.state.messages
+    const value = e.target.value
+
+    const filteredMessages = filter(messages, m => includes(m.content, value))
+
+    this.setState({
+      filteredMessages: filteredMessages,
     })
   }
 
   render() {
-    const { messages } = this.state
+    console.log('render')
+    const { filteredMessages } = this.state
     return (
       <section>
-        <Sort sort={this.sort}/>
+        <section className='header'>
+          <Filter filter={this.filter}/>
+          <Sort sort={this.sort}/>
+        </section>
         <div id="messages-container">
           <ul>
-          { this.props.user ? messages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
+          { this.props.user ? filteredMessages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
           </ul>
         </div>
       </section>

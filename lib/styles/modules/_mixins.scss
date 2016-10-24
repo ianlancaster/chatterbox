@@ -10,3 +10,13 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+
+@mixin inputfield {
+  border: none;
+  border-radius: 5px;
+  background: $pale-gray;
+  font-family: $fira-sans;
+  font-size: 15px;
+  overflow: hidden;
+  height: 25px;
+}

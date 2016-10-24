@@ -5,10 +5,6 @@ export default class Button extends React.Component {
     super()
   }
 
-  componentDidMount() {
-
-  }
-
   render() {
     return (
       <button className={this.props.cl} onClick={this.props.action}>{this.props.text}</button>
