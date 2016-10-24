@@ -30,7 +30,7 @@ export default class MessagesContainer extends Component {
   }
 
   sort(direction) {
-    const messages = this.state.messages
+    const messages = this.state.filteredMessages
     const sortedMessages = messages.sort((a, b) => {
       if (direction === 'down') {
         return b.id - a.id
@@ -42,7 +42,7 @@ export default class MessagesContainer extends Component {
     })
 
     this.setState({
-      messages: sortedMessages,
+      filteredMessages: sortedMessages,
     })
   }
 
