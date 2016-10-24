@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import { pick, map, extend } from 'lodash'
 import moment from 'moment'
-import EventEmitter from 'wolfy87-eventemitter'
 import firebase, { reference, signIn } from '../firebase'
 import autoSize from './AutoSize'
-
-export const ee = new EventEmitter()
 
 export default class UserInput extends Component {
   constructor() {
@@ -13,10 +10,6 @@ export default class UserInput extends Component {
     this.state = {
       draftMessage: '',
     }
-  }
-
-  componentDidMount() {
-    ee.addListener('messageAdded', this.testFunctionTriggeredByEe)
   }
 
   addNewMessage() {
@@ -30,12 +23,6 @@ export default class UserInput extends Component {
     })
 
     this.setState({ draftMessage: '' })
-
-    ee.emitEvent('messageAdded')
-  }
-
-  testFunctionTriggeredByEe() {
-    console.log('test function in UserInput ran')
   }
 
   clearMessage() {
@@ -45,7 +32,6 @@ export default class UserInput extends Component {
   }
 
   render() {
-    console.log('UserInput render ')
     const { draftMessage } = this.state
     let buttonState = false
     if (!this.state.draftMessage) {

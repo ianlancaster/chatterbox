@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import { pick, map, extend, sortBy, filter, includes } from 'lodash'
-import EventEmitter from 'wolfy87-eventemitter'
 import firebase, { reference } from '../firebase'
-import {ee} from '../components/UserInput.jsx'
 import Sort from '../components/Sort.jsx'
 import Filter from '../components/Filter.jsx'
-
-console.log(ee)
 
 const Message = require('../components/Message.jsx')
 
@@ -19,15 +15,6 @@ export default class MessagesContainer extends Component {
     }
     this.sort = this.sort.bind(this)
     this.filter = this.filter.bind(this)
-  }
-
-  componentDidMount() {
-    console.log('messages container component did mount log')
-    ee.addListener('messageAdded', this.testFunctionTriggeredByEe)
-  }
-
-  testFunctionTriggeredByEe() {
-    console.log('test function in MessagesContainer ran')
   }
 
   componentWillReceiveProps() {
