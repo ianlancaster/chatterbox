@@ -3,6 +3,8 @@ import { pick, map, extend, sortBy, filter, includes } from 'lodash'
 import firebase, { reference } from '../firebase'
 import Sort from '../components/Sort.jsx'
 import Filter from '../components/Filter.jsx'
+import UsersContainer from '../containers/UsersContainer.jsx'
+
 
 const Message = require('../components/Message.jsx')
 
@@ -17,13 +19,11 @@ export default class MessagesContainer extends Component {
     this.filter = this.filter.bind(this)
   }
 
-  componentWillReceiveProps() {
-    console.log('MessageContainer compWillReciveProps()')
+  componentDidMount() {
     reference.limitToLast(100).on('value', (snapshot) => {
       const messages = snapshot ? snapshot.val() : {}
       this.setState({
         messages: map(messages, (val, key) => extend(val, { key })),
-        filteredMessages: map(messages, (val, key) => extend(val, { key })),
       })
     })
   }
@@ -67,6 +67,7 @@ export default class MessagesContainer extends Component {
           { this.props.user ? filteredMessages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
           </ul>
         </div>
+        <UsersContainer user={this.props.user} messages={this.state.messages} />
       </section>
     )
   }

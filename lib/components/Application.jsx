@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { pick, map, extend } from 'lodash'
 import UserInput from './UserInput.jsx'
 import MessagesContainer from '../containers/MessagesContainer.jsx'
-import UsersContainer from '../containers/UsersContainer.jsx'
 import LogInStatus from './LogInStatus.jsx'
 
 export default class Application extends Component {
@@ -24,7 +23,6 @@ export default class Application extends Component {
     return (
       <div className="app">
         <MessagesContainer user={user} />
-        <UsersContainer user={user}/>
         <LogInStatus user={user} updateUser={this.updateUser} />
         <UserInput user={user} />
       </div>
