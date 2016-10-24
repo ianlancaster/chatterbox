@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { pick, map, extend, sortBy, filter, includes } from 'lodash'
+import EventEmitter from 'wolfy87-eventemitter'
 import firebase, { reference } from '../firebase'
 import Sort from '../components/Sort.jsx'
 import Filter from '../components/Filter.jsx'
+
+const ee = new EventEmitter()
 
 const Message = require('../components/Message.jsx')
 
@@ -17,7 +20,16 @@ export default class MessagesContainer extends Component {
     this.filter = this.filter.bind(this)
   }
 
+  componentDidMount() {
+    ee.addListeners('messageAdded', [this.componentWillReceiveProps, this.testFunctionTriggeredByEe])
+  }
+
+  testFunctionTriggeredByEe() {
+    console.log('test function in MessagesContainer ran')
+  }
+
   componentWillReceiveProps() {
+    console.log('MessageContainer compWillReciveProps()')
     reference.limitToLast(100).on('value', (snapshot) => {
       const messages = snapshot ? snapshot.val() : {}
       this.setState({
@@ -59,7 +71,7 @@ export default class MessagesContainer extends Component {
   }
 
   render() {
-    console.log('render')
+    console.log('message container render')
     const { filteredMessages } = this.state
     return (
       <section>
