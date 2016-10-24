@@ -12,6 +12,10 @@ export default class UsersContainer extends Component {
     }
   }
 
+  filter() {
+    
+  }
+
   render() {
     console.log('users', this.props.user)
     console.log('messages in render', this.props.messages)

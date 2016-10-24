@@ -13,7 +13,7 @@ export default class MessagesContainer extends Component {
     super()
     this.state = {
       messages: [],
-      filteredMessage: '',
+      filterValue: '',
     }
     this.sort = this.sort.bind(this)
     this.filter = this.filter.bind(this)
@@ -47,12 +47,13 @@ export default class MessagesContainer extends Component {
 
   filter(e) {
     const value = e.target.value.toLowerCase()
-    this.setState({ filteredMessage: value })
+    this.setState({ filterValue: value })
   }
 
   render() {
     let messages = this.state.messages
-    let value = this.state.filteredMessage
+    let value = this.state.filterValue
+
     let filteredMessages = filter(messages, m => includes(m.content, value))
 
 
