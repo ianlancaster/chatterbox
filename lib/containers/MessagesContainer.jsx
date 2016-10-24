@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { pick, map, extend, sortBy, filter, includes } from 'lodash'
 import EventEmitter from 'wolfy87-eventemitter'
 import firebase, { reference } from '../firebase'
+import {ee} from '../components/UserInput.jsx'
 import Sort from '../components/Sort.jsx'
 import Filter from '../components/Filter.jsx'
 
-const ee = new EventEmitter()
+console.log(ee)
 
 const Message = require('../components/Message.jsx')
 
@@ -14,14 +15,15 @@ export default class MessagesContainer extends Component {
     super()
     this.state = {
       messages: [],
-      filteredMessages: [],
+      filteredMessage: '',
     }
     this.sort = this.sort.bind(this)
     this.filter = this.filter.bind(this)
   }
 
   componentDidMount() {
-    ee.addListeners('messageAdded', [this.componentWillReceiveProps, this.testFunctionTriggeredByEe])
+    console.log('messages container component did mount log')
+    ee.addListener('messageAdded', this.testFunctionTriggeredByEe)
   }
 
   testFunctionTriggeredByEe() {
@@ -34,15 +36,13 @@ export default class MessagesContainer extends Component {
       const messages = snapshot ? snapshot.val() : {}
       this.setState({
         messages: map(messages, (val, key) => extend(val, { key })),
-      })
-      this.setState({
-        filteredMessages: this.state.messages,
+        filteredMessages: map(messages, (val, key) => extend(val, { key })),
       })
     })
   }
 
   sort(direction) {
-    const messages = this.state.filteredMessages
+    const messages = this.state.messages
     const sortedMessages = messages.sort((a, b) => {
       if (direction === 'down') {
         return b.id - a.id
@@ -54,23 +54,21 @@ export default class MessagesContainer extends Component {
     })
 
     this.setState({
-      filteredMessages: sortedMessages,
+      messages: sortedMessages,
     })
   }
 
   filter(e) {
-    e.preventDefault()
-    const messages = this.state.messages
     const value = e.target.value.toLowerCase()
-
-    const filteredMessages = filter(messages, m => includes(m.content, value))
-
-    this.setState({ filteredMessages: filteredMessages })
+    this.setState({ filteredMessage: value })
   }
 
   render() {
-    console.log('message container render')
-    const { filteredMessages } = this.state
+    let messages = this.state.messages
+    let value = this.state.filteredMessage
+    let filteredMessages = filter(messages, m => includes(m.content, value))
+
+
     return (
       <section>
         <section className='header'>

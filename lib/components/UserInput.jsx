@@ -5,7 +5,7 @@ import EventEmitter from 'wolfy87-eventemitter'
 import firebase, { reference, signIn } from '../firebase'
 import autoSize from './AutoSize'
 
-const ee = new EventEmitter()
+export const ee = new EventEmitter()
 
 export default class UserInput extends Component {
   constructor() {
@@ -45,7 +45,7 @@ export default class UserInput extends Component {
   }
 
   render() {
-    console.log('render ');
+    console.log('UserInput render ')
     const { draftMessage } = this.state
     let buttonState = false
     if (!this.state.draftMessage) {
