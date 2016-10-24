@@ -11,20 +11,19 @@ export default class MessagesContainer extends Component {
     super()
     this.state = {
       messages: [],
-      filteredMessages: [],
+      filteredMessage: '',
     }
     this.sort = this.sort.bind(this)
     this.filter = this.filter.bind(this)
   }
 
   componentWillReceiveProps() {
+    console.log('MessageContainer compWillReciveProps()')
     reference.limitToLast(100).on('value', (snapshot) => {
       const messages = snapshot ? snapshot.val() : {}
       this.setState({
         messages: map(messages, (val, key) => extend(val, { key })),
-      })
-      this.setState({
-        filteredMessages: this.state.messages,
+        filteredMessages: map(messages, (val, key) => extend(val, { key })),
       })
     })
   }
@@ -47,20 +46,16 @@ export default class MessagesContainer extends Component {
   }
 
   filter(e) {
-    e.preventDefault()
-    const messages = this.state.messages
-    const value = e.target.value
-
-    const filteredMessages = filter(messages, m => includes(m.content, value))
-
-    this.setState({
-      filteredMessages: filteredMessages,
-    })
+    const value = e.target.value.toLowerCase()
+    this.setState({ filteredMessage: value })
   }
 
   render() {
-    console.log('render')
-    const { filteredMessages } = this.state
+    let messages = this.state.messages
+    let value = this.state.filteredMessage
+    let filteredMessages = filter(messages, m => includes(m.content, value))
+
+
     return (
       <section>
         <section className='header'>
