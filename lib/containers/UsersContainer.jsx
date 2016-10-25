@@ -24,7 +24,7 @@ export default class UsersContainer extends Component {
     return (
       <div id="users-container">
         <ul>
-          { this.props.user ? tempUsers.map(m => <UserCard key={m.key} name={m.userName} email={m.email} filterUser={this.props.filterUser} />) : '' }
+          { this.props.user ? tempUsers.map(m => <UserCard key={m.key} name={m.userName} email={m.email} user={this.props.user} filterUser={this.props.filterUser} />) : '' }
         </ul>
         {this.props.userValue === '' ? '' : <Button cl='clear-user-filter-button' text='Clear User Filter' action={this.props.clearUserValue} />}
       </div>
