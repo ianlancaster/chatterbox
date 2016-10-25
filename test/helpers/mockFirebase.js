@@ -27,7 +27,17 @@ const mockFirebase = {
     "redirectEventId":null
   },
   messages: [
-    {"-KUTnoALvGHFmtV60oYe":{
+    {
+      "content":"helo",
+      "createdAt":1476911908174,
+      "user": {
+        "displayName":"Ryan Westlake",
+        "email":"ryancwestlake@gmail.com",
+        "uid":"ZnywWBF1v1drfb09aZOJvU4EHf33"
+        },
+      "key":"-KUTnoALvGHFmtV60oYe"
+    },
+    {
       "content":"helo",
       "createdAt":1476911908174,
       "user":{
@@ -36,8 +46,8 @@ const mockFirebase = {
         "uid":"ZnywWBF1v1drfb09aZOJvU4EHf33"
         },
       "key":"-KUTnoALvGHFmtV60oYe"
-    }},
-    {"-KUTnoALvGHFmtV60oYe":{
+    },
+    {
       "content":"helo",
       "createdAt":1476911908174,
       "user":{
@@ -46,17 +56,7 @@ const mockFirebase = {
         "uid":"ZnywWBF1v1drfb09aZOJvU4EHf33"
         },
       "key":"-KUTnoALvGHFmtV60oYe"
-    }},
-    {"-KUTnoALvGHFmtV60oYe":{
-      "content":"helo",
-      "createdAt":1476911908174,
-      "user":{
-        "displayName":"Ryan Westlake",
-        "email":"ryancwestlake@gmail.com",
-        "uid":"ZnywWBF1v1drfb09aZOJvU4EHf33"
-        },
-      "key":"-KUTnoALvGHFmtV60oYe"
-    }},
+    },
   ],
 }
 
