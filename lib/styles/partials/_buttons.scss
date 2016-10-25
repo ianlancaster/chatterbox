@@ -6,12 +6,21 @@ button {
   font-family: $fira-sans;
 }
 
-.add-btn, .clear-btn {
+.btn {
   @include defaultbutton;
   border-radius: 5px;
   color: $white;
   font-size: 15px;
   height: 40px;
+  width: 75px;
+}
+
+.sm-btn {
+  @include defaultbutton;
+  border-radius: 5px;
+  color: $white;
+  font-size: 15px;
+  height: 25px;
   width: 75px;
 }
 
@@ -23,25 +32,25 @@ button {
   background: $red;
 }
 
-.sign-in-button, .sign-out-button {
-  @include defaultbutton;
-  @include buttonpadding;
-  color: $white;
-  font-weight: lighter;
-  position: absolute;
-}
+// .sign-in-button, .sign-out-button {
+//   @include defaultbutton;
+//   @include buttonpadding;
+//   color: $white;
+//   font-weight: lighter;
+//   position: absolute;
+// }
 
 .sign-out-button {
   background-color: $red;
-  right: 0px;
-  font-size: 12px;
-  bottom: 11px;
+  // right: 0px;
+  // font-size: 12px;
+  // bottom: 11px;
 }
 
 .sign-in-button {
   background-color: $green;
-  color: $white;
-  font-size: 17px;
-  bottom: 7px;
-  left: 10px;
+  // color: $white;
+  // font-size: 17px;
+  // bottom: 7px;
+  // left: 10px;
 }

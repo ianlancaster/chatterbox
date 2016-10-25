@@ -73,15 +73,16 @@ export default class MessagesContainer extends Component {
     return (
       <section>
         <section className='header'>
+          <h1 className='title'>chatterbox</h1>
           <Filter filter={this.filterSearch}/>
           <Sort sort={this.sort}/>
         </section>
-        <div id="messages-container">
-          <ul>
+        <UsersContainer user={user} messages={messages} userValue={userValue} filterUser={this.filterUser} clearUserValue={this.clearUserValue}/>
+        <section className='messages-container'>
+          <ul className='messages-list'>
           { this.props.user ? filteredMessages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
           </ul>
-        </div>
-        <UsersContainer user={user} messages={messages} userValue={userValue} filterUser={this.filterUser} clearUserValue={this.clearUserValue}/>
+        </section>
       </section>
     )
   }
