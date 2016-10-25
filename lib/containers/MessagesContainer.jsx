@@ -19,9 +19,10 @@ export default class MessagesContainer extends Component {
     this.sort = this.sort.bind(this)
     this.filterSearch = this.filterSearch.bind(this)
     this.filterUser = this.filterUser.bind(this)
+    this.clearUserValue = this.clearUserValue.bind(this)
   }
 
-  componentDidMount() {
+  componentWillReceiveProps() {
     reference.limitToLast(100).on('value', (snapshot) => {
       const messages = snapshot ? snapshot.val() : {}
       this.setState({
@@ -57,12 +58,16 @@ export default class MessagesContainer extends Component {
     this.setState({ filterValue: value })
   }
 
-  render() {
-    let messages = this.state.messages
-    let value = this.state.filterValue
-    let userValue = this.state.userValue
+  clearUserValue() {
+    this.setState({ userValue: '' })
+  }
 
-    let filteredMessages = filter(messages, m => includes(m.content, value))
+  render() {
+    const { messages, filterValue, userValue } = this.state
+
+    const user = this.props.user
+
+    let filteredMessages = filter(messages, m => includes(m.content, filterValue))
     filteredMessages = filter(filteredMessages, m => includes(m.user.email, userValue))
 
     return (
@@ -76,7 +81,7 @@ export default class MessagesContainer extends Component {
           { this.props.user ? filteredMessages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
           </ul>
         </div>
-        <UsersContainer user={this.props.user} messages={this.state.messages} filterUser={this.filterUser}/>
+        <UsersContainer user={user} messages={messages} userValue={userValue} filterUser={this.filterUser} clearUserValue={this.clearUserValue}/>
       </section>
     )
   }
