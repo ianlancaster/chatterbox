@@ -70,10 +70,6 @@ export default class MessagesContainer extends Component {
     let filteredMessages = filter(messages, m => includes(m.content, filterValue))
     filteredMessages = filter(filteredMessages, m => includes(m.user.email, userValue))
 
-    const locus = require('locus')
-    if(messages.length) {
-      debugger
-    }
     return (
       <section>
         <section className='header'>
