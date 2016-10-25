@@ -17,6 +17,7 @@ button {
 
 .sm-btn {
   @include defaultbutton;
+  background-color: lighten($dark-blue, 20%);
   border-radius: 5px;
   color: $white;
   font-size: 15px;
