@@ -10,7 +10,7 @@ const locus = require('locus')
 
 describe('Message Container', () => {
   context('feature tests', () => {
-    it('renders as a <div>', () => {
+    it('renders as a <section>', () => {
       const wrapper = shallow(<MessagesContainer />)
       expect(wrapper.type()).to.equal('section')
     })
@@ -22,8 +22,8 @@ describe('Message Container', () => {
 
     it('should render messages if a user is logged in', () => {
       const wrapper = mount(<MessagesContainer user={mockFirebase.user} />)
-      console.log(mockFirebase.messages)
       wrapper.setState({ messages: mockFirebase.messages })
+      expect(wrapper.find('ul').children()).to.have.length(2)
     })
   })
 })
