@@ -4,7 +4,7 @@ const UserCard = (props) => {
   const name = props.name.split(' ')[0]
   return (
       <li>
-        <p>{name} ({props.email})</p>
+        <p className='users' onClick={props.filterUser} value={props.email}>{name} ({props.email})</p>
       </li>
   )
 }
