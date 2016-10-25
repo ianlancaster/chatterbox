@@ -13,9 +13,6 @@ export default class UsersContainer extends Component {
   }
 
   render() {
-    console.log('users', this.props.user)
-    console.log('messages in render', this.props.messages)
-
     let tempUsers = []
     this.props.messages.forEach((message) => {
       tempUsers.push({ userName: message.user.displayName, email: message.user.email, key: message.user.uid })
