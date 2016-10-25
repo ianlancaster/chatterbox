@@ -33,6 +33,7 @@
     "chai": "^3.5.0",
     "chai-enzyme": "^0.5.2",
     "chai-jquery": "^2.0.0",
+    "cheerio": "^0.22.0",
     "css-loader": "^0.25.0",
     "enzyme": "^2.4.1",
     "escape-html": "^1.0.3",
