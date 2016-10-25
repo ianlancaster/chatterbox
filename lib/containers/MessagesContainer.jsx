@@ -16,7 +16,7 @@ export default class MessagesContainer extends Component {
       filterValue: '',
     }
     this.sort = this.sort.bind(this)
-    this.filter = this.filter.bind(this)
+    this.filterSearch = this.filterSearch.bind(this)
   }
 
   componentDidMount() {
@@ -45,7 +45,7 @@ export default class MessagesContainer extends Component {
     })
   }
 
-  filter(e) {
+  filterSearch(e) {
     const value = e.target.value.toLowerCase()
     this.setState({ filterValue: value })
   }
@@ -60,7 +60,7 @@ export default class MessagesContainer extends Component {
     return (
       <section>
         <section className='header'>
-          <Filter filter={this.filter}/>
+          <Filter filter={this.filterSearch}/>
           <Sort sort={this.sort}/>
         </section>
         <div id="messages-container">
