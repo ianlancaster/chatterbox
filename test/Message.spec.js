@@ -6,11 +6,13 @@ import { expect } from 'chai'
 import mockFirebase from './helpers/mockFirebase.js'
 import MessagesContainer from '../lib/containers/MessagesContainer.jsx'
 
+require('sinon')
+
 describe('Message Container', () => {
   context('feature tests', () => {
     it('renders as a <div>', () => {
       const wrapper = shallow(<MessagesContainer />)
-      expect(wrapper.type()).to.equal('div')
+      expect(wrapper.type()).to.equal('section')
     })
 
     it('should not render messages if a user is not logged in', () => {
