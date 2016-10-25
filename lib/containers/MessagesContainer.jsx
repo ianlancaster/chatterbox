@@ -21,7 +21,7 @@ export default class MessagesContainer extends Component {
     this.filterUser = this.filterUser.bind(this)
   }
 
-  componentDidMount() {
+  componentWillReceiveProps() {
     reference.limitToLast(100).on('value', (snapshot) => {
       const messages = snapshot ? snapshot.val() : {}
       this.setState({
