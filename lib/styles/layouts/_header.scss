@@ -2,13 +2,15 @@
 @import "../modules/variables";
 
 .header {
-  background-color: $dark-blue;
-  height: $mid-px/2;
+    background-color: #34495E;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
 }
 
 .title-filter-container {
   display: inline-block;
-  padding-top: 10px;
   margin-left: 15px;
 }
 
@@ -17,4 +19,16 @@
   font-size: 20px;
   display: inline-block;
   margin-right: 10px;
+}
+
+@media (max-width: 640px) {
+  .header {
+    height: 100px;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .title-filter-container {
+    width: 80%;
+    margin-left: 0px;
+  }
 }
