@@ -27,7 +27,7 @@ export default class UsersContainer extends Component {
     return (
       <div id="users-container">
         <ul>
-          { this.props.user ? tempUsers.map(m => <UserCard key={m.key} name={m.userName} email={m.email} />) : '' }
+          { this.props.user ? tempUsers.map(m => <UserCard key={m.key} name={m.userName} email={m.email} filterUser={this.props.filterUser} />) : '' }
         </ul>
       </div>
     )
