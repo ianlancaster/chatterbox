@@ -33,15 +33,7 @@ export default class MessagesContainer extends Component {
 
   sort(direction) {
     const messages = this.state.messages
-    const sortedMessages = messages.sort((a, b) => {
-      if (direction === 'down') {
-        return b.id - a.id
-      }
-      if (direction === 'up') {
-        return a.id - b.id
-      }
-      return false
-    })
+    const sortedMessages = messages.sort((a, b) => { return direction === 'down' ? b.id - a.id : a.id - b.id })
 
     this.setState({
       messages: sortedMessages,
