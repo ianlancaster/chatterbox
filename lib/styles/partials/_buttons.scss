@@ -17,6 +17,7 @@ button {
 
 .sm-btn {
   @include defaultbutton;
+  background-color: $light-blue;
   border-radius: 5px;
   color: $white;
   font-size: 15px;
@@ -32,25 +33,18 @@ button {
   background: $red;
 }
 
-// .sign-in-button, .sign-out-button {
-//   @include defaultbutton;
-//   @include buttonpadding;
-//   color: $white;
-//   font-weight: lighter;
-//   position: absolute;
-// }
-
 .sign-out-button {
   background-color: $red;
-  // right: 0px;
-  // font-size: 12px;
-  // bottom: 11px;
 }
 
 .sign-in-button {
   background-color: $green;
-  // color: $white;
-  // font-size: 17px;
-  // bottom: 7px;
-  // left: 10px;
+}
+
+.clear-user-filter-button {
+  @include defaultbutton;
+  color: $white;
+  background-color: lighten($red, 10%);
+  margin-top: 10px;
+  margin-left: 10px;
 }
