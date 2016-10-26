@@ -12,6 +12,10 @@ require('sinon')
 
 describe('Application', () => {
   context('feature tests', () => {
+    it('can mount without props', () => {
+      const wrapper = mount(<Application />)
+    })
+
     it('renders as a <div>', () => {
       const wrapper = mount(<Application />)
       expect(wrapper.html()).to.contain('<div class="app">')

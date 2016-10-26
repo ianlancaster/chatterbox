@@ -10,6 +10,10 @@ const locus = require('locus')
 
 describe('Message Container', () => {
   context('feature tests', () => {
+    it('mounts without props', () => {
+      const wrapper = mount(<MessagesContainer />)
+    })
+
     it('renders as a <section>', () => {
       const wrapper = shallow(<MessagesContainer />)
       expect(wrapper.type()).to.equal('section')

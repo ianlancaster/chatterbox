@@ -11,6 +11,10 @@ const $ = require('chai-jquery')
 
 describe('UserInput', () => {
   context('feature tests', () => {
+    it('mounts without props', () => {
+      const wrapper = mount(<UserInput />)
+    })
+
     it('should display an input field and two buttons', () => {
       const wrapper = mount(<UserInput />)
       expect(wrapper.find('.message-input')).to.have.length(1)

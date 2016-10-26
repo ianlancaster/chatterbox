@@ -11,6 +11,10 @@ const locus = require('locus')
 
 describe('Filter Container', () => {
   context('feature tests', () => {
+    it('mounts without props', () => {
+      const wrapper = mount(<Filter />)
+    })
+
     it('renders as a section', () => {
       const wrapper = shallow(<Filter />)
       expect(wrapper.type()).to.equal('section')
