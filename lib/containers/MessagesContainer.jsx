@@ -73,8 +73,10 @@ export default class MessagesContainer extends Component {
     return (
       <section>
         <section className='header'>
-          <h1 className='title'>chatterbox</h1>
-          <Filter filter={this.filterSearch}/>
+          <div>
+            <h1 className='title'>chatterbox</h1>
+            <Filter filter={this.filterSearch}/>
+          </div>
           <Sort sort={this.sort}/>
         </section>
         <UsersContainer user={user} messages={messages} userValue={userValue} filterUser={this.filterUser} clearUserValue={this.clearUserValue}/>
