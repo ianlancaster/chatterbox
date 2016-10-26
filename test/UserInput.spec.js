@@ -6,11 +6,14 @@ import mockFirebase from './helpers/mockFirebase.js'
 import MessagesContainer from '../lib/containers/MessagesContainer.jsx'
 
 const sinon = require('sinon')
-const $ = require('chai-jquery')
-
 
 describe('UserInput', () => {
   context('feature tests', () => {
+    it('mounts without props', () => {
+      const wrapper = mount(<UserInput />)
+      expect(wrapper).to.have.length(1)
+    })
+
     it('should display an input field and two buttons', () => {
       const wrapper = mount(<UserInput />)
       expect(wrapper.find('.message-input')).to.have.length(1)

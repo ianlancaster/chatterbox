@@ -10,6 +10,11 @@ const locus = require('locus')
 
 describe('Sort Container', () => {
   context('feature tests', () => {
+    it('mounts without props', () => {
+      const wrapper = mount(<Sort />)
+      expect(wrapper).to.have.length(1)
+    })
+
     it('renders as a section', () => {
       const wrapper = shallow(<Sort />)
       expect(wrapper.type()).to.equal('section')
