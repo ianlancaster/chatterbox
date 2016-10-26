@@ -17,8 +17,8 @@ export default class MessagesContainer extends Component {
       userValue: '',
     }
     this.sort = this.sort.bind(this)
-    this.filterSearch = this.filterSearch.bind(this)
-    this.filterUser = this.filterUser.bind(this)
+    this.setFilterSearchState = this.setFilterSearchState.bind(this)
+    this.setFilterUserState = this.setFilterUserState.bind(this)
     this.clearUserValue = this.clearUserValue.bind(this)
   }
 
@@ -48,12 +48,12 @@ export default class MessagesContainer extends Component {
     })
   }
 
-  filterUser(e) {
+  setFilterUserState(e) {
     const userValue = e.target.attributes[1].value
     this.setState({ userValue })
   }
 
-  filterSearch(e) {
+  setFilterSearchState(e) {
     const value = e.target.value.toLowerCase()
     this.setState({ filterValue: value })
   }
@@ -75,11 +75,11 @@ export default class MessagesContainer extends Component {
         <section className='header'>
           <div>
             <h1 className='title'>chatterbox</h1>
-            <Filter filter={this.filterSearch}/>
+            <Filter filter={this.setFilterSearchState}/>
           </div>
           <Sort sort={this.sort}/>
         </section>
-        <UsersContainer user={user} messages={messages} userValue={userValue} filterUser={this.filterUser} clearUserValue={this.clearUserValue}/>
+        <UsersContainer user={user} messages={messages} userValue={userValue} filterUser={this.setFilterUserState} clearUserValue={this.clearUserValue}/>
         <section className='messages-container'>
           <ul className='messages-list'>
           { this.props.user ? filteredMessages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
