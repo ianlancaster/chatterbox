@@ -6,8 +6,6 @@ import mockFirebase from './helpers/mockFirebase.js'
 import MessagesContainer from '../lib/containers/MessagesContainer.jsx'
 
 const sinon = require('sinon')
-const $ = require('chai-jquery')
-
 
 describe('UserInput', () => {
   context('feature tests', () => {
