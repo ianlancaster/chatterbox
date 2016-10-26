@@ -12,6 +12,7 @@ describe('Sort Container', () => {
   context('feature tests', () => {
     it('mounts without props', () => {
       const wrapper = mount(<Sort />)
+      expect(wrapper).to.have.length(1)
     })
 
     it('renders as a section', () => {

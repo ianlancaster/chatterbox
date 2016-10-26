@@ -13,6 +13,7 @@ describe('UserInput', () => {
   context('feature tests', () => {
     it('mounts without props', () => {
       const wrapper = mount(<UserInput />)
+      expect(wrapper).to.have.length(1)
     })
 
     it('should display an input field and two buttons', () => {

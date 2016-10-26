@@ -14,6 +14,7 @@ describe('Application', () => {
   context('feature tests', () => {
     it('can mount without props', () => {
       const wrapper = mount(<Application />)
+      expect(wrapper).to.have.length(1)
     })
 
     it('renders as a <div>', () => {
