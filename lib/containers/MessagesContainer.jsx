@@ -17,8 +17,8 @@ export default class MessagesContainer extends Component {
       userValue: '',
     }
     this.sort = this.sort.bind(this)
-    this.filterSearch = this.filterSearch.bind(this)
-    this.filterUser = this.filterUser.bind(this)
+    this.setFilterSearchState = this.setFilterSearchState.bind(this)
+    this.setFilterUserState = this.setFilterUserState.bind(this)
     this.clearUserValue = this.clearUserValue.bind(this)
   }
 
@@ -33,29 +33,29 @@ export default class MessagesContainer extends Component {
 
   sort(direction) {
     const messages = this.state.messages
-    const sortedMessages = messages.sort((a, b) => {
-      if (direction === 'down') {
-        return b.id - a.id
-      }
-      if (direction === 'up') {
-        return a.id - b.id
-      }
-      return false
-    })
+    const sortedMessages = messages.sort((a, b) => { return direction === 'down' ? b.id - a.id : a.id - b.id })
 
     this.setState({
       messages: sortedMessages,
     })
   }
 
-  filterUser(e) {
+  setFilterUserState(e) {
     const userValue = e.target.attributes[1].value
     this.setState({ userValue })
   }
 
-  filterSearch(e) {
+  setFilterSearchState(e) {
     const value = e.target.value.toLowerCase()
     this.setState({ filterValue: value })
+  }
+
+  filterSearch() {
+    return filter(this.state.messages, m => includes(m.content, this.state.filterValue))
+  }
+
+  filterUser(filteredMessages) {
+    return filter(filteredMessages, m => includes(m.user.email, this.state.userValue))
   }
 
   clearUserValue() {
@@ -67,22 +67,22 @@ export default class MessagesContainer extends Component {
 
     const user = this.props.user
 
-    let filteredMessages = filter(messages, m => includes(m.content, filterValue))
-    filteredMessages = filter(filteredMessages, m => includes(m.user.email, userValue))
+    let filteredMessages = this.filterSearch()
+    filteredMessages = this.filterUser(filteredMessages)
 
     return (
       <section>
         <section className='header'>
           <div>
             <h1 className='title'>chatterbox</h1>
-            <Filter filter={this.filterSearch}/>
+            <Filter filter={this.setFilterSearchState}/>
           </div>
           <Sort sort={this.sort}/>
         </section>
-        <UsersContainer user={user} messages={messages} userValue={userValue} filterUser={this.filterUser} clearUserValue={this.clearUserValue}/>
+        <UsersContainer user={user} messages={messages} userValue={userValue} filterUser={this.setFilterUserState} clearUserValue={this.clearUserValue}/>
         <section className='messages-container'>
           <ul className='messages-list'>
-          { this.props.user ? filteredMessages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
+          { user ? filteredMessages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
           </ul>
         </section>
       </section>
