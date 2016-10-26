@@ -6,7 +6,6 @@
   position: absolute;
   right: 0;
   top: 0;
-  z-index: -1;
 }
 
 .users-list {
@@ -24,6 +23,7 @@
     height: initial;
     width: initial;
     position: initial;
+    margin-top: 50px;
     padding-bottom: 15px;
     border-bottom: solid 1px $pale-gray;
   }
@@ -31,5 +31,11 @@
   .users-list {
     padding-top: 20px;
     padding-left: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  #users-container {
+    margin-top: 100px;
   }
 }
