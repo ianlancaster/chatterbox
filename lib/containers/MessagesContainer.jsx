@@ -58,6 +58,14 @@ export default class MessagesContainer extends Component {
     this.setState({ filterValue: value })
   }
 
+  filterSearch() {
+    return filter(this.state.messages, m => includes(m.content, this.state.filterValue))
+  }
+
+  filterUser(filteredMessages) {
+    return filter(filteredMessages, m => includes(m.user.email, this.state.userValue))
+  }
+
   clearUserValue() {
     this.setState({ userValue: '' })
   }
@@ -67,8 +75,8 @@ export default class MessagesContainer extends Component {
 
     const user = this.props.user
 
-    let filteredMessages = filter(messages, m => includes(m.content, filterValue))
-    filteredMessages = filter(filteredMessages, m => includes(m.user.email, userValue))
+    let filteredMessages = this.filterSearch()
+    filteredMessages = this.filterUser(filteredMessages)
 
     return (
       <section>
@@ -82,7 +90,7 @@ export default class MessagesContainer extends Component {
         <UsersContainer user={user} messages={messages} userValue={userValue} filterUser={this.setFilterUserState} clearUserValue={this.clearUserValue}/>
         <section className='messages-container'>
           <ul className='messages-list'>
-          { this.props.user ? filteredMessages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
+          { user ? filteredMessages.map(m => <Message key={m.key} name={m.user.displayName} content={m.content} time={m.createdAt} />) : '' }
           </ul>
         </section>
       </section>
